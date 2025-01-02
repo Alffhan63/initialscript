@@ -6,7 +6,7 @@ sudo apt upgrade -y
 sudo apt-get install curl
 
 #install jdk
-sudo apt install openjdk-11-jdk -y
+sudo apt install openjdk-17-jdk -y
 
 #GPG key Jenkins
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
