@@ -1,11 +1,15 @@
 #!/bin/bash
 
+
+
+install(){
 #update env
 sudo apt update
 sudo apt upgrade -y
 sudo apt-get install curl
 
 #install jdk
+sudo apt-get purge openjdk* -y
 sudo apt install openjdk-17-jdk -y
 
 #GPG key Jenkins
@@ -19,3 +23,16 @@ sudo apt-get install jenkins
 
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+
+}
+
+
+main(){
+if systemctl list-units --type=service | grep -q jenkins.service; then
+    echo "jenkins not installed"
+    install
+else
+    echo "jenkins installed"
+fi
+}
+
