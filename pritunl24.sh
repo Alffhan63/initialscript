@@ -1,6 +1,6 @@
 #!/bin/bash
 
-installMongo(){
+installPritunl(){
 sudo tee /etc/apt/sources.list.d/mongodb-org.list << EOF
 deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
 EOF
@@ -27,4 +27,4 @@ sudo systemctl start pritunl mongod
 sudo systemctl enable pritunl mongod
 }
 
-installMongo
+installPritunl
