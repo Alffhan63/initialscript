@@ -31,11 +31,9 @@ if systemctl list-units --type=service | grep -q jenkins.service; then
     echo "Installed"
 else
     echo "Installing"
-    for i in {1..2}; do
-        if [ $i -lt 2 ]; then
-            install
-            sleep 300
-        fi
+        install
+        sleep 180
+        sudo apt-get install jenkins -y
     done
     echo "Installing Success" >> /usr/src/install.log
 fi
