@@ -32,6 +32,7 @@ if systemctl list-units --type=service | grep -q jenkins.service; then
 else
     echo "Installing"
     install
+    echo "Installing Success" > /usr/src/install.log
 fi
 }
 
