@@ -1,16 +1,16 @@
 #!/bin/bash
 
+installjdk(){
+    #install jdk
+    sudo apt-get purge openjdk* -y
+    sudo apt install openjdk-17-jdk -y
+}
 
-
-install(){
+installjenkins(){
     #update env
     sudo apt update
     sudo apt upgrade -y
     sudo apt-get install curl
-
-    #install jdk
-    sudo apt-get purge openjdk* -y
-    sudo apt install openjdk-17-jdk -y
 
     #GPG key Jenkins
     sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -31,9 +31,10 @@ if systemctl list-units --type=service | grep -q jenkins.service; then
     echo "Installed"
 else
     echo "Installing"
-    install
+    installjdk
+    installjenkins
     sleep 180
-    sudo apt-get install jenkins -y
+    installjenkins
     echo "Installing Success" >> /usr/src/install.log
 fi
 }
