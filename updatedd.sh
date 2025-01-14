@@ -1,6 +1,7 @@
 #!/bin/bash
 
 repstatsd() {
+date  >> updatedd.log
 echo "Replacing statsd daemon"
 	cat <<EOF >/etc/systemd/system/statsd_exporter.service
 [Unit]
@@ -22,6 +23,8 @@ repdogstad() {
 	sed -i '/dogstatsd_port/s/8125/9999/g' /etc/datadog-agent/datadog.yaml
  	date  >> updatedd.log
  	cat /etc/datadog-agent/datadog.yaml >> updatedd.log
+  	echo ""
+   	echo ""
 }
 
 restart() {
