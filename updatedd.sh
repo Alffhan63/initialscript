@@ -24,8 +24,8 @@ repdogstad() {
 
 restart() {
 	systemctl daemon-reload 
-	systemctl restart datadog-agent  >> updatedd.log
-	systemctl restart statsd_exporter.service  >> updatedd.log
+	systemctl restart datadog-agent statsd_exporter.service 
+ 	systemctl status datadog-agent statsd_exporter.service  >> updatedd.log
  	echo "Success Restart datadog-agent statsd_exporter.service"
   	echo ""
    	echo ""
