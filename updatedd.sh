@@ -32,6 +32,7 @@ restart() {
   	echo ""
    	echo ""
     	cat updatedd.log
+     	rm -rf updatedd.log
 }
 
 repstatsd
