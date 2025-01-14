@@ -20,13 +20,12 @@ EOF
 repdogstad() {
 	echo "Replacing port DD"
 	sed -i '/dogstatsd_port/s/8125/9999/g' /etc/datadog-agent/datadog.yaml
-	cat /etc/datadog-agent/datadog.yaml
 }
 
 restart() {
-	systemctl daemon-reload
-	systemctl restart datadog-agent
-	systemctl restart statsd_exporter.service
+	systemctl daemon-reload 
+	systemctl restart datadog-agent  >> updatedd.log
+	systemctl restart statsd_exporter.service  >> updatedd.log
  	echo "Success Restart datadog-agent statsd_exporter.service"
 }
 
