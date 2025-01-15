@@ -21,7 +21,6 @@ EOF
 repdogstad() {
 	echo "Replacing port DD"
 	sed -i '/dogstatsd_port/s/8125/9999/g' /etc/datadog-agent/datadog.yaml
- 	date  >> updatedd.log
  	cat /etc/datadog-agent/datadog.yaml >> updatedd.log
   	echo ""
    	echo ""
