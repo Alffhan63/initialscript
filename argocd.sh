@@ -32,3 +32,6 @@
  sleep 30s
  echo "ini ip loadbalancernya"
  kubectl get svc -n argocd |grep -i loadbalancer |awk '{ print $4 }'
+ echo "fun was here"
+ 
+ 
